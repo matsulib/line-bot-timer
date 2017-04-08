@@ -5,9 +5,11 @@
 ![スクリーンショット](https://s3-ap-northeast-1.amazonaws.com/box-01/tmp/timer.PNG)
 
 ## 起動方法
-git push heroku master
-heroku ps:scale rq_worker=1 timer_worker=1
-
+```
+$ heroku addons:create redistogo
+$ git push heroku master
+$ heroku ps:scale rq_worker=1 timer_worker=1
+```
 
 環境変数を設定
 * LINE_CHANNEL_ACCESS_TOKEN
