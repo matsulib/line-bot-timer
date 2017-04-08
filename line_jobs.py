@@ -7,7 +7,7 @@ import settings
 # LINE
 line_bot_api = settings.line_bot_api
 
-r = redis.Redis(host=settings.redis_host, port=settings.redis_port, password=settings.redis_password)
+r = redis.from_url(settings.redis_url)
 key_name = settings.timer_key_name
 
 

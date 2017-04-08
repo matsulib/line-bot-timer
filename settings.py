@@ -10,9 +10,7 @@ line_bot_api = LineBotApi(os.getenv('LINE_CHANNEL_ACCESS_TOKEN'))
 handler = WebhookHandler(os.getenv('LINE_CHANNEL_SECRET'))
 
 # redis
-redis_host = os.getenv('REDIS_HOST')
-redis_port = os.getenv('REDIS_PORT')
-redis_password = os.getenv('REDIS_PASSWORD')
+redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
 
 # timer
 timer_key_name = 'timer'

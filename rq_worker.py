@@ -6,7 +6,7 @@ import settings
 
 listen = ['high', 'default', 'low']
 
-conn = redis.Redis(host=settings.redis_host, port=settings.redis_port, password=settings.redis_password)
+conn = redis.from_url(settings.redis_url)
 
 if __name__ == '__main__':
     with Connection(conn):
