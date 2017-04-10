@@ -30,4 +30,4 @@ def set_timer(message_id, sender_id, text, start_timestamp):
     end_timestamp = start_timestamp + wait_time_sec
     r.zadd(key_name, name, end_timestamp)
     line_bot_api.push_message(sender_id,
-        TextSendMessage(text='processing:{}\n id:{}\nWaiting {} seconds...'.format(text, message_id, wait_time_sec)))
+        TextSendMessage(text='in progress:{}\n id:{}\nWaiting {} seconds...'.format(text, message_id, wait_time_sec)))

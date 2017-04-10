@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import os
 from datetime import datetime
+from pytz import timezone
 from rq import Queue
 from flask import (
     Flask, request, abort
@@ -15,6 +16,7 @@ from linebot.models import (
 import settings
 from rq_worker import conn
 from line_jobs import set_timer
+from jstutil import timestamp2jst_str
 
 
 # LINE
@@ -53,7 +55,7 @@ def handle_message(event):
     # タイムスタンプ
     timestamp = int(str(event.timestamp)[:10])
     # とりあえず返信
-    start_datetime = datetime.fromtimestamp(timestamp)
+    start_datetime = timestamp2jst_str(timestamp)
     line_bot_api.reply_message(event.reply_token,
         TextSendMessage(text='begin:{}\n id:{}\n{}'.format(text, message_id, start_datetime)))
 

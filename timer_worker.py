@@ -2,9 +2,11 @@ import time
 import asyncio
 import redis
 from datetime import datetime
+from pytz import timezone
 from linebot.models import TextSendMessage
 
 import settings
+from jstutil import timestamp2jst_str
 
 # LINE
 line_bot_api = settings.line_bot_api
@@ -20,7 +22,7 @@ async def timer(delay):
             diff = end_timestamp - now
             if diff <= 0:
                 message_id, sender_id, text = name.decode().split(':')
-                end_datetime = datetime.fromtimestamp(int(now))
+                end_datetime = timestamp2jst_str(now)
                 line_bot_api.push_message(sender_id,
                     TextSendMessage(text='end:{}\n id:{}\n{}'.format(text, message_id, end_datetime)))
                 r.zrem(key_name, name)

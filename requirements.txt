@@ -1,4 +1,5 @@
 Flask==0.11.1
 rq==0.7.1
+pytz==2017.2
 line-bot-sdk==1.1.0
 gunicorn==19.6.0
