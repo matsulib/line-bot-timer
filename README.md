@@ -2,7 +2,7 @@
 入力された時間（秒）が経過したら通知してくれるLINE BOTです。
 
 ## Screenshot
-![スクリーンショット](https://s3-ap-northeast-1.amazonaws.com/box-01/tmp/timer.PNG)
+![スクリーンショット](https://qiita-image-store.s3.amazonaws.com/0/141719/f71142be-7dd7-9393-c800-cc54bb48efad.png)
 
 ## 起動方法
 環境変数を設定
